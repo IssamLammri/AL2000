@@ -10,7 +10,8 @@ public class Abonne extends Client {
 	private Date Date_Abonment;
 
 	private int bba;
-
+	private int omroo;
+	 	
 	/**
 	 * @param nom
 	 * @param prenom
