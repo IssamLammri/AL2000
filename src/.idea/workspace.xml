@@ -15,8 +15,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Abonne.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="375">
               <caret line="29" column="38" lean-forward="true" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
+=======
+            <state relative-caret-position="105">
+              <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+>>>>>>> Mohammed/issam
               <folding>
                 <element signature="e#959#960#0" expanded="true" />
                 <element signature="e#981#982#0" expanded="true" />
@@ -131,8 +136,13 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Abonne.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="375">
           <caret line="29" column="38" lean-forward="true" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
+=======
+        <state relative-caret-position="105">
+          <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+>>>>>>> Mohammed/issam
           <folding>
             <element signature="e#959#960#0" expanded="true" />
             <element signature="e#981#982#0" expanded="true" />
