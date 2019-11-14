@@ -48,7 +48,8 @@ public class test {
 		Location test = new Location();
 
 		ArrayList<Location> Locations = test.GetAllLocations();
-		//test : 
+		//test : test 2 
+		// test 2 
 		for (Location location : Locations) {
 			System.out.println(location);
 		}
