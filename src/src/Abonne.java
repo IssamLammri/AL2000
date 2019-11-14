@@ -8,6 +8,7 @@ public class Abonne extends Client {
 	private String Password;
 	private int NB_location;
 	private Date Date_Abonment;
+	private bba;
 
 	/**
 	 * @param nom
