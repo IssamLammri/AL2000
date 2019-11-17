@@ -1,14 +1,18 @@
 package src;
 
+import java.util.ArrayList;
+
 public class Catalogue {
 
 	private int num_Catalogue;
+	public ArrayList<Film> Films = new ArrayList<>();
+	
 
 	/**
 	 * @param num_Catalogue
 	 */
 	public Catalogue(int num_Catalogue) {
-		super();
+		//super();
 		this.num_Catalogue = num_Catalogue;
 	}
 
@@ -25,5 +29,18 @@ public class Catalogue {
 	public void setNum_Catalogue(int num_Catalogue) {
 		this.num_Catalogue = num_Catalogue;
 	}
+	
+	/**
+	 * @return the Films
+	 */
+	public ArrayList<Film> getFilms() {
+		return Films;
+	}
 
+	/**
+	 * Set Films
+	 */
+	public void ajouterFilms(Film fl) {
+		this.Films.add(fl);
+	}
 }
