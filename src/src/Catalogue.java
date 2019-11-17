@@ -38,9 +38,25 @@ public class Catalogue {
 	}
 
 	/**
-	 * Set Films
+	 * Ajouter Films
 	 */
 	public void ajouterFilms(Film fl) {
 		this.Films.add(fl);
+	}
+	
+	/**
+	 * Supprimer Films
+	 */
+	public void supprimerFilms(Film f2) {
+		this.Films.remove(f2);
+	}
+	
+	/**
+	 * Afficher tous les films dans la catalogue
+	 */
+	public void AfficherFicherFilm() 
+	{
+		for(Film e:Films)
+		      System.out.println(e);
 	}
 }

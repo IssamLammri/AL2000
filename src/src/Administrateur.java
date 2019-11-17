@@ -35,6 +35,18 @@ public class Administrateur extends Employe{
 	public void consulter_Statistique() {
 		
 	}
+	
+	public void ajoute_film() 
+	{
+		
+		
+	}
+	
+    public void suprrimer_film() 
+    {
+		
+		
+	}
 
 	
 
