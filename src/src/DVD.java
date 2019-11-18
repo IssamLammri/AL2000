@@ -4,30 +4,33 @@ import java.io.Serializable;
 
 public class DVD implements Serializable {
 
-	private String Titre_Film;
+	private Film Film;
 	private boolean Existe;
+	private int quantite;
 
 	/**
-	 * @param titre_Film
+	 * @param film
 	 * @param existe
+	 * @param quantite
 	 */
-	public DVD(String titre_Film, boolean existe) {
-		Titre_Film = titre_Film;
+	public DVD(src.Film film, boolean existe, int quantite) {
+		Film = film;
 		Existe = existe;
+		this.quantite = quantite;
 	}
 
 	/**
-	 * @return the titre_Film
+	 * @return the film
 	 */
-	public String getTitre_Film() {
-		return Titre_Film;
+	public Film getFilm() {
+		return Film;
 	}
 
 	/**
-	 * @param titre_Film the titre_Film to set
+	 * @param film the film to set
 	 */
-	public void setTitre_Film(String titre_Film) {
-		Titre_Film = titre_Film;
+	public void setFilm(Film film) {
+		Film = film;
 	}
 
 	/**
@@ -44,4 +47,22 @@ public class DVD implements Serializable {
 		Existe = existe;
 	}
 
+	/**
+	 * @return the quantite
+	 */
+	public int getQuantite() {
+		return quantite;
+	}
+
+	/**
+	 * @param quantite the quantite to set
+	 */
+	public void setQuantite(int quantite) {
+		this.quantite = quantite;
+	}
+
+	@Override
+	public String toString() {
+		return "DVD [Film=" + Film + ", Existe=" + Existe + ", quantite=" + quantite + "]";
+	}
 }

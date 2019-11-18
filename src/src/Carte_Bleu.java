@@ -100,6 +100,8 @@ public class Carte_Bleu implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Carte_Bleu [N_Carte=" + N_Carte + ", CVV=" + CVV + ", Date_Experation=" + Date_Experation + "]";
+		return "Carte_Bleu [N_Carte=" + N_Carte + ", CVV=" + CVV + ", Date_Experation=" + Date_Experation + ", Montant="
+				+ Montant + "]";
 	}
+
 }

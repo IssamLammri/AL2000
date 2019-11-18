@@ -59,7 +59,7 @@ public class Location implements Serializable {
 	}
 
 	public ArrayList<Location> GetAllLocations() {
-		ArrayList<Client> Listes_Locations = new ArrayList<>();
+		ArrayList<Location> Listes_Locations = new ArrayList<>();
 		try {
 			FileInputStream fis = new FileInputStream("./Locations.ser");
 			ObjectInputStream ois = new ObjectInputStream(fis);
@@ -195,12 +195,28 @@ public class Location implements Serializable {
 		long diffDays = diff / (24 * 60 * 60 * 1000);
 		double prix = 0.0;
 
-		if (this.getClient() instanceof Client) {
-			prix = diffDays * 4;
+		if (diffDays == 0 || diffDays == 1) {
+			if (this.getClient() instanceof Abonne) {
+				prix = 1 * 4;
+			} else {
+				prix = 1 * 5;
+			}
 		} else {
-			prix = diffDays * 5;
+			if (this.getClient() instanceof Abonne) {
+				prix = diffDays * 4;
+			} else {
+				prix = diffDays * 5;
+			}
 		}
+
 		return prix;
+	}
+
+	@Override
+	public String toString() {
+		return "Location [numero_Location=" + numero_Location + ", Date_Location=" + Date_Location + ", Date_Rendu="
+				+ Date_Rendu + ", Abonne=" + Abonne + ", Prix_Location=" + Prix_Location + ", Client=" + Client
+				+ ", dvd=" + dvd + "]";
 	}
 
 }
