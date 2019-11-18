@@ -21,9 +21,9 @@ public class test {
 
 		mohammed.Sabonner();
 
-		ArrayList<Client> Clients = issam.GetAllClients();
+		ArrayList<Object> Clients = issam.GetAllClients();
 
-		DVD dvd = new DVD("love", true);
+		// DVD dvd = new DVD("love", true);
 		Carte_Bleu CB = null;
 
 		cal1.set(2022, 7, 21);
@@ -33,26 +33,37 @@ public class test {
 		 * for (Client client : Clients) { System.out.println(client); }
 		 */
 
-		for (Client client : Clients) {
-			if (client.getNom().equals("LAMMRI")) {
-				System.out.println("premier test : ");
-				CB = new Carte_Bleu("N0", client, 999, uneDate2, 100.0);
-				client.Louer(dvd);
-			}
-		}
+		/*
+		 * for (Object client : Clients) { if (((Client)
+		 * client).getNom().equals("LAMMRI")) { System.out.println("premier test : ");
+		 * CB = new Carte_Bleu("N0", (Client) client, 999, uneDate2, 100.0); ((Client)
+		 * client).Louer(dvd); ((Client) client).Rendre_DVD(dvd, 0); } }
+		 */
 
-		for (Client client : Clients) {
+		/*
+		 * for (Object client : Clients) { if (client instanceof Abonne) {
+		 * System.out.println("ABONNE"); if (((Abonne) client).getNom().equals("DIB")) {
+		 * System.out.println("premier test Abonné : "); CB = new
+		 * Carte_Bleu("N0",(Client) client, 999, uneDate2, 100.0); ((Abonne)
+		 * client).Louer(dvd); ((Abonne) client).Rendre_DVD(dvd, 0); } } else {
+		 * 
+		 * }
+		 * 
+		 * }
+		 */
+
+		for (Object client : Clients) {
 			System.out.println(client);
 		}
 
 		Location test = new Location();
 
 		ArrayList<Location> Locations = test.GetAllLocations();
-		//test : test 2 
-		// test 2 
+
 		for (Location location : Locations) {
 			System.out.println(location);
 		}
+
 	}
 
 }

@@ -1,22 +1,12 @@
 package src;
 
+import java.util.ArrayList;
+
 public class Carte_Abonnement {
 
 	private String Id_Carte;
-	private String Genre;
-	private String Montant;
-
-	/**
-	 * @param id_Carte
-	 * @param genre
-	 * @param montant
-	 */
-	public Carte_Abonnement(String id_Carte, String genre, String montant) {
-		super();
-		Id_Carte = id_Carte;
-		Genre = genre;
-		Montant = montant;
-	}
+	ArrayList<String> Genre;
+	private double Montant;
 
 	/**
 	 * @return the id_Carte
@@ -35,28 +25,28 @@ public class Carte_Abonnement {
 	/**
 	 * @return the genre
 	 */
-	public String getGenre() {
+	public ArrayList<String> getGenre() {
 		return Genre;
 	}
 
 	/**
 	 * @param genre the genre to set
 	 */
-	public void setGenre(String genre) {
+	public void setGenre(ArrayList<String> genre) {
 		Genre = genre;
 	}
 
 	/**
 	 * @return the montant
 	 */
-	public String getMontant() {
+	public double getMontant() {
 		return Montant;
 	}
 
 	/**
 	 * @param montant the montant to set
 	 */
-	public void setMontant(String montant) {
+	public void setMontant(double montant) {
 		Montant = montant;
 	}
 

@@ -23,7 +23,7 @@ public class Client implements Serializable {
 	private String Adresse;
 	private Date Date_N;
 	private Carte_Bleu CB;
-	public static final ArrayList<Client> Clients = new ArrayList<>();
+	public static final ArrayList<Object> Clients = new ArrayList<>();
 
 	/**
 	 * @param nom
@@ -61,7 +61,7 @@ public class Client implements Serializable {
 	/**
 	 * @return the clients
 	 */
-	public ArrayList<Client> getClients() {
+	public ArrayList<Object> getClients() {
 		return Clients;
 	}
 
@@ -158,8 +158,7 @@ public class Client implements Serializable {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date();
 		System.out.println(dateFormat.format(date));
-
-		if (this.FunctionTestAbon()) {
+		if (this.FunctionTestAbon() == true) {
 			if (function_NBLocationParClient() < 3) {
 				if (Function_ExistFILMINAL20000(dvd)) {
 					if (Function_MontantCarteBancaire()) {
@@ -224,10 +223,11 @@ public class Client implements Serializable {
 	}
 
 	private boolean FunctionTestAbon() {
-		if (this instanceof Client) {
+		if (this instanceof Abonne) {
+			return true;
+		} else {
 			return false;
 		}
-		return true;
 	}
 
 	private boolean Function_ExistFILMINAL20000(DVD dvd) {
@@ -261,8 +261,7 @@ public class Client implements Serializable {
 	public void Sabonner() {
 		// DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date();
-		Abonne ab = new Abonne(this.Nom, this.Prenom, this.Adresse, this.Date_N, this.CB, this.Nom + this.Prenom, 0,
-				date);
+		Abonne ab = new Abonne(this.Nom, this.Prenom, this.Adresse, this.Date_N, this.CB, this.Nom + this.Prenom, date);
 		Clients.remove(this);
 		SerializableClients();
 	}
@@ -279,8 +278,8 @@ public class Client implements Serializable {
 		}
 	}
 
-	public ArrayList<Client> GetAllClients() {
-		ArrayList<Client> Listes_Clients = new ArrayList<>();
+	public ArrayList<Object> GetAllClients() {
+		ArrayList<Object> Listes_Clients = new ArrayList<>();
 		try {
 			FileInputStream fis = new FileInputStream("./Clients.ser");
 			ObjectInputStream ois = new ObjectInputStream(fis);
@@ -316,14 +315,16 @@ public class Client implements Serializable {
 	 * @param fonction qui rend le film dans l'AL2000
 	 */
 	public void Rendre_DVD(DVD dvd, int NumeroLoca) {
-		Location l = null;
+		Location l = new Location();
 		ArrayList<Location> Locations = l.getLocations();
 		for (Location location : Locations) {
 			if (location.getNumero_Location() == NumeroLoca) {
 				Date date = new Date();
 				double prix = location.Calcule_Prix();
 				location.setDate_Rendu(date);
+				System.out.println("prix : " + this.CB.getMontant());
 				this.CB.setMontant(this.CB.getMontant() - prix);
+				location.SerializableLocations();
 				// functionUpdateAL2000();
 			}
 		}

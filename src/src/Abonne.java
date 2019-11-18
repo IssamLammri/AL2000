@@ -1,10 +1,8 @@
 package src;
 
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,9 +11,11 @@ public class Abonne extends Client implements Serializable {
 
 	private int ID_Abonne;
 	private String Password;
-	private int NB_location;
+	private int NB_location = 0;
 	private Date Date_Abonment;
 	private static int count = 0;
+	public static final ArrayList<Carte_Abonnement> CartesAbonnements = new ArrayList<>();
+
 	// public static final ArrayList<Abonne> Abonnes = new ArrayList<>();
 
 	/**
@@ -30,12 +30,12 @@ public class Abonne extends Client implements Serializable {
 	 * @param date_Abonment
 	 */
 	public Abonne(String nom, String prenom, String adresse, Date date_N, Carte_Bleu cB, String password,
-			int nB_location, Date date_Abonment) {
+			Date date_Abonment) {
 		super(nom, prenom, adresse, date_N, cB);
 		ID_Abonne = count++;
 		Password = password;
-		NB_location = nB_location;
 		Date_Abonment = date_Abonment;
+
 		// Abonnes.add(this);
 	}
 
@@ -158,6 +158,11 @@ public class Abonne extends Client implements Serializable {
 	 */
 	public void DemanderFilm() {
 
+	}
+
+	public void Louer(DVD dvd) {
+		super.Louer(dvd);
+		this.setNB_location(++NB_location);
 	}
 
 	@Override
