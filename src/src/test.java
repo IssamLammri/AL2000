@@ -24,8 +24,11 @@ public class test {
 		ArrayList<Client> Clients = issam.GetAllClients();
 		
 		DVD dvd = new DVD("love", true,10);
+		DVD dvd1= new DVD("lol",true,20);
+		
 		ArrayList<DVD> dvds=new ArrayList<>();
-		dvds.add(dvd);
+		dvds.add(dvd); 
+		dvds.add(dvd1);
 		
 		AL2000 m=new AL2000(01, "Grenoble", "lol", dvds);
 		
@@ -40,10 +43,11 @@ public class test {
 
 		for (Client client : Clients) {
 			if (client.getNom().equals("LAMMRI")) {
+				
 				System.out.println("premier test : ");
-				CB = new Carte_Bleu("N0", client, 999, uneDate2, 100.0);
-				client.Louer(dvd,m);
-				System.out.println("nbr de dvds est :"+dvd.nbrDVD);
+				CB = new Carte_Bleu("N0", client, 999, uneDate2, 100.0);				
+				client.Louer(dvd1,m);
+				System.out.println("nbr de dvds est :"+dvd1.nbrDVD);
 			}
 		}
 
