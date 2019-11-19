@@ -19,7 +19,8 @@ public class Location implements Serializable {
 	private DVD dvd;
 	private static int count = 0;
 	public static final ArrayList<Location> Locations = new ArrayList<>();
-
+	public AL2000 m;
+	
 	/**
 	 * @param numero_Location
 	 * @param date_Location
@@ -27,7 +28,7 @@ public class Location implements Serializable {
 	 * @param abonne
 	 * @param prix_Location
 	 */
-	public Location(Date date_Location, Date date_Rendu, boolean abonne, int prix_Location, Client clie, DVD dvd_l) {
+	public Location(Date date_Location, Date date_Rendu, boolean abonne, int prix_Location, Client clie, DVD dvd_l, AL2000 m1) {
 		this.numero_Location = count++;
 		Date_Location = date_Location;
 		Date_Rendu = date_Rendu;
@@ -35,6 +36,7 @@ public class Location implements Serializable {
 		Prix_Location = prix_Location;
 		Client = clie;
 		dvd = dvd_l;
+		m=m1;
 		Locations.add(this);
 		SerializableLocations();
 	}
@@ -59,7 +61,7 @@ public class Location implements Serializable {
 	}
 
 	public ArrayList<Location> GetAllLocations() {
-		ArrayList<Client> Listes_Locations = new ArrayList<>();
+		ArrayList<Location> Listes_Locations = new ArrayList<>();
 		try {
 			FileInputStream fis = new FileInputStream("./Locations.ser");
 			ObjectInputStream ois = new ObjectInputStream(fis);

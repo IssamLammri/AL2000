@@ -1,10 +1,17 @@
 package src;
 
-public class Employe {
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class Employe implements Serializable {
 
 	private String nom;
 	private String prenom;
 	private String adresse;
+	public static final ArrayList<Employe> employs=new ArrayList<>();
 
 	/**
 	 * @param nom
@@ -58,6 +65,23 @@ public class Employe {
 	 */
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
+	}
+	
+	public void SerializableEmploys() {
+		try {
+			FileOutputStream fos = new FileOutputStream("./Employes.ser");
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			oos.writeObject(employs);
+			oos.close();
+			fos.close();
+		} catch (IOException ioe) {
+			ioe.printStackTrace();
+		}
+	}
+
+	public String toString() {
+		return "Employe [Nom= " + getNom() + ", Prenom= " + getPrenom() + ", Adresse= " + getAdresse() + " ]";
+		
 	}
 
 }

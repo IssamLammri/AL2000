@@ -24,6 +24,7 @@ public class Client implements Serializable {
 	private Date Date_N;
 	private Carte_Bleu CB;
 	public static final ArrayList<Client> Clients = new ArrayList<>();
+	public AL2000 m;	
 
 	/**
 	 * @param nom
@@ -145,7 +146,7 @@ public class Client implements Serializable {
 	/**
 	 * @param fonction qui fait la location d'un film
 	 */
-	public void Louer(DVD dvd) {
+	public void Louer(DVD dvd,AL2000 m) {
 		/*
 		 * Tout d'abord on commence par tester combien de location faite par ce client à
 		 * cet date (interagir avec le fichier des locations pour en savoir) Si le cas
@@ -159,12 +160,14 @@ public class Client implements Serializable {
 		Date date = new Date();
 		System.out.println(dateFormat.format(date));
 
+		
 		if (this.FunctionTestAbon()) {
 			if (function_NBLocationParClient() < 3) {
 				if (Function_ExistFILMINAL20000(dvd)) {
 					if (Function_MontantCarteBancaire()) {
-						System.out.println("location pour cet abonné fini avec succés");
-						Location Loc = new Location(date, null, false, 4, this, dvd);
+						System.out.println("location pour cet abonné fini avec succés test1");						
+						Location Loc = new Location(date, null, false, 4, this, dvd,m);
+						m.debiterNbrDvds(dvd);
 						Loc.SerializableLocations();
 					} else {
 						System.out.println("Desolé, mais vous avez plus d'argent sur votre compte");
@@ -179,8 +182,9 @@ public class Client implements Serializable {
 			if (function_NBLocationParClient() == 0) {
 				if (Function_ExistFILMINAL20000(dvd)) {
 					if (Function_MontantCarteBancaire()) {
-						System.out.println("location pour cet client fini avec succés");
-						Location Loc = new Location(date, null, false, 4, this, dvd);
+						System.out.println("location pour cet client fini avec succés test2");
+						Location Loc = new Location(date, null, false, 4, this, dvd, m);
+						m.debiterNbrDvds(dvd);
 						Loc.SerializableLocations();
 					} else {
 						System.out.println("Desolé, mais vous avez plus d'argent sur votre compte");

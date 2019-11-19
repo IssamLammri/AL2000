@@ -22,8 +22,13 @@ public class test {
 		mohammed.Sabonner();
 
 		ArrayList<Client> Clients = issam.GetAllClients();
-
-		DVD dvd = new DVD("love", true);
+		
+		DVD dvd = new DVD("love", true,10);
+		ArrayList<DVD> dvds=new ArrayList<>();
+		dvds.add(dvd);
+		
+		AL2000 m=new AL2000(01, "Grenoble", "lol", dvds);
+		
 		Carte_Bleu CB = null;
 
 		cal1.set(2022, 7, 21);
@@ -37,7 +42,8 @@ public class test {
 			if (client.getNom().equals("LAMMRI")) {
 				System.out.println("premier test : ");
 				CB = new Carte_Bleu("N0", client, 999, uneDate2, 100.0);
-				client.Louer(dvd);
+				client.Louer(dvd,m);
+				System.out.println("nbr de dvds est :"+dvd.nbrDVD);
 			}
 		}
 
